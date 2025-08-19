@@ -1,73 +1,248 @@
-# Welcome to your Lovable project
+# Libs de Monitoração
 
-## Project info
+Uma ferramenta web moderna para criação automatizada de monitores e alertas para as principais plataformas de observabilidade: **Datadog**, **Dynatrace** e **Zabbix**.
 
-**URL**: https://lovable.dev/projects/25589498-2a1a-4990-995c-a154781a9472
+## 🎯 Visão Geral
 
-## How can I edit this code?
+O **Libs de Monitoração** é uma aplicação React que simplifica e automatiza o processo de criação de monitores de infraestrutura e aplicações. A ferramenta permite gerar configurações de monitoramento para três das principais plataformas do mercado, oferecendo uma interface intuitiva e padronizada.
 
-There are several ways of editing your application.
+## ✨ Funcionalidades Principais
 
-**Use Lovable**
+### 🔧 Criação de Monitores
+- **Criação Automatizada**: Interface guiada para criação de monitores personalizados
+- **Múltiplas Plataformas**: Suporte completo para Datadog, Dynatrace e Zabbix
+- **Templates Inteligentes**: Configurações pré-definidas baseadas em melhores práticas
+- **Validação em Tempo Real**: Verificação automática de configurações
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/25589498-2a1a-4990-995c-a154781a9472) and start prompting.
+### 📊 Dashboard de Monitores
+- **Visualização Centralizada**: Painel único para todos os monitores criados
+- **Histórico Completo**: Registro de todos os monitores gerados
+- **Filtros Avançados**: Busca por ferramenta, serviço ou data de criação
+- **Links Diretos**: Acesso rápido aos monitores nas plataformas originais
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎨 Páginas Especializadas
+- **Monitores Datadog**: Configurações específicas para observabilidade completa
+- **Monitores Zabbix**: Triggers e alertas personalizados para infraestrutura
+- **Monitores Dynatrace**: Monitoramento full-stack com IA integrada
 
-**Use your preferred IDE**
+### 💡 Boas Práticas de Observabilidade
+- **Guias Especializados**: Recomendações para cada plataforma
+- **Templates Otimizados**: Configurações baseadas em casos de uso reais
+- **Melhores Práticas**: Guidelines para monitoramento eficiente
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🔗 Integrações
+- **Datadog Integration**: Conexão direta com APIs do Datadog
+- **Extração de Dados**: Ferramenta para importar configurações existentes
+- **Exportação**: Geração de arquivos de configuração prontos para uso
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠 Tecnologias Utilizadas
 
-Follow these steps:
+### Frontend
+- **React 18** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Framework de estilos
+- **Vite** - Build tool e desenvolvimento
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### UI/UX
+- **Shadcn/UI** - Componentes de interface
+- **Radix UI** - Primitivos acessíveis
+- **Lucide React** - Biblioteca de ícones
+- **React Helmet Async** - SEO otimizado
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Gerenciamento de Estado
+- **React Query** - Cache e sincronização de dados
+- **React Hook Form** - Gerenciamento de formulários
+- **Custom Hooks** - Estado local e persistência
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Backend/Database
+- **Supabase** - Backend as a Service
+- **PostgreSQL** - Banco de dados
+- **Row Level Security** - Segurança de dados
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Roteamento e Navegação
+- **React Router DOM** - Roteamento SPA
+- **Programmatic Navigation** - Navegação baseada em estado
+
+## 🚀 Plataformas Suportadas
+
+### 🐕 Datadog
+**Observabilidade Completa**
+- Monitoramento de infraestrutura
+- APM (Application Performance Monitoring)
+- Logs centralizados
+- Métricas customizadas
+- Alertas inteligentes
+
+**Tecnologias Suportadas:**
+- Kubernetes
+- Node.js
+- Java
+- PostgreSQL
+- NGINX
+
+### 🔵 Zabbix
+**Monitoramento Open Source**
+- Monitoramento de infraestrutura
+- Triggers customizados
+- Templates reutilizáveis
+- Dashboards personalizados
+- Alertas multi-canal
+
+**Tecnologias Suportadas:**
+- Linux/Windows
+- MySQL
+- NGINX
+- Docker
+- Redes e SNMP
+
+### 🟣 Dynatrace
+**IA e Full-Stack**
+- Monitoramento full-stack
+- Análise de causa raiz automática
+- IA integrada (Davis)
+- Mapeamento de dependências
+- User Experience Monitoring
+
+**Tecnologias Suportadas:**
+- Kubernetes
+- Java/.NET
+- AWS Lambda
+- NGINX
+- Cloud platforms
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/ui/          # Componentes de interface
+├── hooks/                  # Custom hooks
+│   └── useMonitorStorage.ts # Gerenciamento de monitores
+├── pages/                  # Páginas da aplicação
+│   ├── Index.tsx          # Página inicial
+│   ├── CreateMonitor.tsx  # Criação de monitores
+│   ├── Dashboard.tsx      # Dashboard principal
+│   ├── DatadogMonitors.tsx # Monitores Datadog
+│   ├── ZabbixMonitors.tsx # Monitores Zabbix
+│   ├── DynatraceMonitors.tsx # Monitores Dynatrace
+│   └── ...               # Outras páginas
+├── utils/                 # Utilitários
+├── integrations/         # Integrações externas
+│   └── supabase/        # Configuração Supabase
+└── lib/                 # Bibliotecas e configurações
 ```
 
-**Edit a file directly in GitHub**
+## 🎮 Como Usar
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 1. **Página Inicial**
+- Acesse a página principal
+- Visualize as três plataformas suportadas
+- Escolha entre as opções disponíveis
 
-**Use GitHub Codespaces**
+### 2. **Criar Monitor**
+- Clique em "Iniciar criação do monitor"
+- Selecione a plataforma desejada
+- Preencha as informações do serviço
+- Configure os parâmetros específicos
+- Gere o monitor automaticamente
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 3. **Visualizar Monitores**
+- Acesse o "Dashboard de monitores"
+- Visualize todos os monitores criados
+- Filtre por plataforma ou serviço
+- Acesse links diretos para as plataformas
 
-## What technologies are used for this project?
+### 4. **Boas Práticas**
+- Consulte o guia de "Boas Práticas de Observabilidade"
+- Aprenda sobre configurações otimizadas
+- Implemente padrões de monitoramento
 
-This project is built with:
+## 🔧 Instalação e Desenvolvimento
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Pré-requisitos
+- Node.js 18+ 
+- npm ou yarn
 
-## How can I deploy this project?
+### Comandos
+```bash
+# Instalar dependências
+npm install
 
-Simply open [Lovable](https://lovable.dev/projects/25589498-2a1a-4990-995c-a154781a9472) and click on Share -> Publish.
+# Iniciar desenvolvimento
+npm run dev
 
-## Can I connect a custom domain to my Lovable project?
+# Build para produção
+npm run build
 
-Yes, you can!
+# Preview da build
+npm run preview
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Variáveis de Ambiente
+```env
+# Configuração Supabase (automática no Lovable)
+VITE_SUPABASE_URL=sua-url-supabase
+VITE_SUPABASE_ANON_KEY=sua-chave-anonima
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🗺 Rotas da Aplicação
+
+- `/` - Página inicial
+- `/criar-monitor` - Criação de monitores
+- `/dashboard` - Dashboard principal
+- `/monitores/datadog` - Monitores Datadog
+- `/monitores/zabbix` - Monitores Zabbix
+- `/monitores/dynatrace` - Monitores Dynatrace
+- `/integracoes/datadog` - Integração Datadog
+- `/boas-praticas` - Guia de boas práticas
+- `/extrair-solicitacoes` - Extração de dados
+
+## 🎨 Design System
+
+O projeto utiliza um design system baseado em:
+- **Tokens semânticos** para cores e tipografia
+- **Componentes reutilizáveis** com variantes
+- **Modo escuro/claro** automático
+- **Responsividade** mobile-first
+- **Acessibilidade** WCAG 2.1
+
+## 📱 Responsividade
+
+- **Desktop**: Layout completo com todas as funcionalidades
+- **Tablet**: Interface adaptada com navegação otimizada
+- **Mobile**: Design mobile-first com componentes empilhados
+
+## 🔒 Segurança
+
+- **Autenticação via Supabase** (opcional)
+- **Row Level Security** no banco de dados
+- **Validação de dados** client e server-side
+- **Sanitização** de inputs do usuário
+
+## 🚀 Deploy
+
+### Lovable (Recomendado)
+1. Clique em "Publish" no editor Lovable
+2. Configure domínio personalizado (opcional)
+3. Aplicação disponível instantaneamente
+
+### Manual
+```bash
+npm run build
+# Upload da pasta dist/ para seu hosting
+```
+
+## 🤝 Contribuição
+
+Este projeto foi desenvolvido com foco em:
+- **Usabilidade**: Interface intuitiva e amigável
+- **Performance**: Carregamento rápido e responsivo
+- **Manutenibilidade**: Código limpo e bem estruturado
+- **Escalabilidade**: Arquitetura preparada para crescimento
+
+## 📞 Suporte
+
+Para dúvidas ou sugestões sobre a ferramenta, utilize os recursos disponíveis na própria aplicação ou consulte a documentação das plataformas suportadas.
+
+---
+
+**Desenvolvido com ❤️ para simplificar o monitoramento de infraestrutura e aplicações**
