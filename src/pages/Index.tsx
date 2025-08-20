@@ -3,10 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Monitor, BarChart3, Lightbulb } from "lucide-react";
+import { Monitor, BarChart3, Lightbulb, LogIn, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import awsLogo from "@/assets/aws.svg";
 const Index = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+
   const handleStart = () => {
     navigate("/criar-monitor");
   };
@@ -17,6 +20,14 @@ const Index = () => {
 
   const handleSuggestions = () => {
     navigate("/boas-praticas");
+  };
+
+  const handleAuth = () => {
+    navigate("/auth");
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
   };
   const jsonLd = {
     "@context": "https://schema.org",
@@ -34,8 +45,30 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        <header className="sr-only">
-          <h1>Libs de Monitoração — Datadog, Zabbix e Dynatrace</h1>
+        <header className="container py-4 flex justify-between items-center">
+          <h1 className="sr-only">Libs de Monitoração — Datadog, Zabbix e Dynatrace</h1>
+          <div className="flex items-center gap-2">
+            <Monitor className="h-6 w-6 text-primary" />
+            <span className="text-lg font-semibold text-foreground">Libs de Monitoração</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {user ? (
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground hidden sm:inline">
+                  {user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={handleSignOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sair
+                </Button>
+              </div>
+            ) : (
+              <Button variant="outline" size="sm" onClick={handleAuth}>
+                <LogIn className="h-4 w-4 mr-2" />
+                Entrar
+              </Button>
+            )}
+          </div>
         </header>
 
         <main className="container py-12">

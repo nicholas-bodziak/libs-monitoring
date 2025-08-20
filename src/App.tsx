@@ -15,6 +15,8 @@ import NotFound from "./pages/NotFound";
 import DatadogIntegration from "./pages/DatadogIntegration";
 import GenericMonitorSuggestions from "./pages/GenericMonitorSuggestions";
 import ExtractRequests from "./pages/ExtractRequests";
+import Auth from "./pages/Auth";
+import { AuthGuard } from "./components/auth/AuthGuard";
 
 const queryClient = new QueryClient();
 
@@ -27,13 +29,14 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/criar-monitor" element={<CreateMonitor />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/monitores" element={<MonitorsRedirect />} />
-            <Route path="/monitores/datadog" element={<DatadogMonitors />} />
-            <Route path="/monitores/zabbix" element={<ZabbixMonitors />} />
-            <Route path="/monitores/dynatrace" element={<DynatraceMonitors />} />
-            <Route path="/integracoes/datadog" element={<DatadogIntegration />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/criar-monitor" element={<AuthGuard><CreateMonitor /></AuthGuard>} />
+            <Route path="/dashboard" element={<AuthGuard><Dashboard /></AuthGuard>} />
+            <Route path="/monitores" element={<AuthGuard><MonitorsRedirect /></AuthGuard>} />
+            <Route path="/monitores/datadog" element={<AuthGuard><DatadogMonitors /></AuthGuard>} />
+            <Route path="/monitores/zabbix" element={<AuthGuard><ZabbixMonitors /></AuthGuard>} />
+            <Route path="/monitores/dynatrace" element={<AuthGuard><DynatraceMonitors /></AuthGuard>} />
+            <Route path="/integracoes/datadog" element={<AuthGuard><DatadogIntegration /></AuthGuard>} />
             <Route path="/boas-praticas" element={<GenericMonitorSuggestions />} />
             <Route path="/extrair-solicitacoes" element={<ExtractRequests />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
